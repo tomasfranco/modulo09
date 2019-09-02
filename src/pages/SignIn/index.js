@@ -15,7 +15,7 @@ const schema = Yup.object().shape({
   password: Yup.string().required('A senha é obrigatória'),
 });
 
-export default function SignIn() {
+function SignIn() {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.auth.loading);
 
@@ -41,3 +41,5 @@ export default function SignIn() {
     </>
   );
 }
+
+export default SignIn;

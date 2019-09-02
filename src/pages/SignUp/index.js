@@ -5,7 +5,6 @@ import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
 import logo from '~/assets/logo.svg';
-
 import { signUpRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
@@ -18,7 +17,7 @@ const schema = Yup.object().shape({
     .required('A senha é obrigatória'),
 });
 
-export default function SignUp() {
+function SignUp() {
   const dispatch = useDispatch();
 
   function handleSubmit({ name, email, password }) {
@@ -30,7 +29,7 @@ export default function SignUp() {
       <img src={logo} alt="Gobaber" />
 
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="name" placeholder="Nome Completo" />
+        <Input name="name" type="text" placeholder="Nome Completo" />
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input
           name="password"
@@ -44,3 +43,5 @@ export default function SignUp() {
     </>
   );
 }
+
+export default SignUp;

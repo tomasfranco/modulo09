@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', 'react-hooks', 'import', 'jsx-a11y'],
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.js'] }],
@@ -35,6 +35,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       'babel-plugin-root-import': {
+        rootPathPrefix: '~',
         rootPathSuffix: 'src',
       },
     },

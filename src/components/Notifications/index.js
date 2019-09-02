@@ -13,7 +13,7 @@ import {
   Notification,
 } from './styles';
 
-export default function Notifications() {
+function Notifications() {
   const [visible, setVisible] = useState(false);
   const [notifications, setNotifications] = useState([]);
 
@@ -23,7 +23,7 @@ export default function Notifications() {
   );
 
   useEffect(() => {
-    async function loadNotifications() {
+    async function loadNotification() {
       const response = await api.get('notifications');
 
       const data = response.data.map(notification => ({
@@ -38,7 +38,7 @@ export default function Notifications() {
       setNotifications(data);
     }
 
-    loadNotifications();
+    loadNotification();
   }, []);
 
   function handleToggleVisible() {
@@ -72,7 +72,6 @@ export default function Notifications() {
                   type="button"
                   onClick={() => handleMarkAsRead(notification._id)}
                 >
-                  {' '}
                   Marcar como lida
                 </button>
               )}
@@ -83,3 +82,5 @@ export default function Notifications() {
     </Container>
   );
 }
+
+export default Notifications;
